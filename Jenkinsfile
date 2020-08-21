@@ -31,19 +31,22 @@ pipeline {
                 sh 'gradle build'
             }
         }
+        stage('Deploy to Heroku') {
+            steps {
+                withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CREDENTIALS' )]){
+                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/peaceful-ocean-10705.git master'
+                }
+            }
+        }
+            
         stage('Tests') {
             steps {
                 sh 'gradle test'
             }
         }
-        stage('Deploy to Heroku') {
-            steps {
-                withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CREDENTIALS' )]){
-                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/nameless-garden-24511.git master'
-                }
-            }
         
-        }
+        
+        
     }
     post {
         success {
