@@ -17,9 +17,11 @@ pipeline {
         EMAIL_RECEPIENT = 'lthuita@gmail.com' 
         
     }
+
     tools{
         gradle 'Gradle-6'
     }
+    
     stages {
         stage('clone repository') {
             steps{
