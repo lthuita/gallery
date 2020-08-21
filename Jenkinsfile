@@ -23,7 +23,7 @@ pipeline {
     stages {
         stage('clone repository') {
             steps{
-                git 'https://github.com/lthuita/gallery.git master'
+                git 'https://github.com/lthuita/gallery'
             }
         }
         stage ('Build project') {
