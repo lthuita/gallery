@@ -37,8 +37,7 @@ pipeline {
                     sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/peaceful-ocean-10705.git master'
                 }
             }
-        }
-            
+        }            
         stage('Tests') {
             steps {
                 sh 'gradle test'
