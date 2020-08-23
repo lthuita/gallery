@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to Heroku') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CREDENTIALS' )]){
-                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/desolate-mountain-12144.git master'
+                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/lukagallery.git master'
                 }
             }
         }            
