@@ -33,8 +33,8 @@ pipeline {
         }
         stage('Deploy to Heroku') {
             steps {
-                withCredentials([usernameColonPassword(credentialsId: 'Heroku', variable: 'HEROKU_CREDENTIALS' )]){
-                    sh 'git push http://${HEROKU_CREDENTIALS}@git.heroku.com/peaceful-ocean-10705.git master'
+                withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CREDENTIALS' )]){
+                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/peaceful-ocean-10705.git master'
                 }
             }
         }            
