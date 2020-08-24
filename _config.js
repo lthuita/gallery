@@ -6,4 +6,4 @@ config.mongoURI = {
     development: 'mongodb+srv://lthuita:Lumathu1983.@gallery.wc344.mongodb.net/darkroom-dev?retryWrites=true&w=majority',
     test: 'mongodb+srv://lthuita:Lumathu1983.@gallery.wc344.mongodb.net/darkroom-test?retryWrites=true&w=majority',
 }
-export default config;
+module.exports = config;
