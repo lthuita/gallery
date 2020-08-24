@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-const dburl = require('./_config')
+const dburl = require('./_config').default
 // Define routes
 let index = require('./routes/index');
 let image = require('./routes/image');
