@@ -9,7 +9,7 @@ let image = require('./routes/image');
 
 // connecting the database
 let mongodb_url = dburl.mongoURI.production;
-//let dbName = 'darkroom';
+//let dbName = 'darkroom';:
 mongoose.connect(`${mongodb_url}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
     if (err) console.log(err)
 });
