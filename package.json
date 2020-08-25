@@ -21,6 +21,7 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "chai-http": "^1.0.0",
+    "jenkins-mocha": "^8.0.0",
     "mocha": "^8.1.1"
   }
 }

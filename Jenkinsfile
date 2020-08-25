@@ -34,13 +34,13 @@ pipeline {
         stage('Deploy to Heroku') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CRED' )]){
-                    sh 'git push https://${HEROKU_CRED}@git.heroku.com/tranquil-chamber-69979.git master'
+                    sh 'git push https://${HEROKU_CRED}@git.heroku.com/still-shore-08813.git master'
                 }
             }
         }            
         stage('Tests') {
             steps {
-                sh 'gradle test'
+                sh 'mocha test'
             }
         }
         
