@@ -40,7 +40,7 @@ pipeline {
         }            
         stage('Tests') {
             steps {
-                sh 'mocha test'
+                sh 'gradle test'
             }
         }
         
