@@ -43,11 +43,7 @@ pipeline {
                 sh 'gradle test'
             }
         }
-        
-      catch (err) {
-          slacksend color: "danger", message: "Build failed :face_with_head_bandage: \n `${env.JOB_NAME} ${env.BUILD_NUMBER}` (<${env.BUILD_URL}|Open>)"
-            throw err
-      }  
+
         
     }
     post {
