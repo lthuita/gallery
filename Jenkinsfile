@@ -46,6 +46,10 @@ pipeline {
      
         
     }
+
+    slackSend color: "good", message: "Message from Jenkins Pipeline"
+
+
     post {
         success {
             emailext attachLog: true,
