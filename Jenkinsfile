@@ -44,11 +44,17 @@ pipeline {
                 }
             }
         }            
-        stage('Tests') {
+        stage('Install dependencies') {
             steps {
-                sh './test/serverTest.sh'
+                sh 'npm install'
             }
         }
+     
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }      
      
         
     }
