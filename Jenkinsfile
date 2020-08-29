@@ -19,9 +19,14 @@ pipeline {
     }
     tools{
         gradle 'Gradle-6'
-        nodejs "node"
+        nodejs 'node'
     }
     stages {
+        stage('Example') {
+            steps {
+                sh 'npm config ls'
+            }
+    }
         stage('clone repository') {
             steps{
                 git 'https://github.com/lthuita/gallery'
