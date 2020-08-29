@@ -28,7 +28,7 @@ pipeline {
         }
         stage ('Build project') {
             steps{
-                sh 'gradle build'
+                sh 'npm install'
             }
         }
         stage('Deploy to Heroku') {
@@ -40,7 +40,7 @@ pipeline {
         }            
         stage('Tests') {
             steps {
-                sh 'npm test'
+                sh './test/serverTest.sh'
             }
         }
      
