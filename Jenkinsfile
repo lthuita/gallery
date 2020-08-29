@@ -22,41 +22,28 @@ pipeline {
         nodejs 'node'
     }
     stages {
-        stage('Example') {
-            steps {
-                sh 'npm config ls'
-            }
-    }
         stage('clone repository') {
             steps{
                 git 'https://github.com/lthuita/gallery'
             }
         }
-        stage ('Build project') {
-            steps{
+        stage('Install dependencies') {
+            steps {
                 sh 'npm install'
             }
-        }
+        }     
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }   
         stage('Deploy to Heroku') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CRED' )]){
                     sh 'git push https://${HEROKU_CRED}@git.heroku.com/still-shore-08813.git master'
                 }
             }
-        }            
-        stage('Install dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-     
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-        }      
-     
-        
+        }         
     }
 
     
