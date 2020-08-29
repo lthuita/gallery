@@ -19,6 +19,7 @@ pipeline {
     }
     tools{
         gradle 'Gradle-6'
+        nodejs "node"
     }
     stages {
         stage('clone repository') {
