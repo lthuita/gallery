@@ -51,7 +51,7 @@ pipeline {
 
     post {
         success {
-            slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+            slackSend (color: 'good', message: "BUILD SUCCESSFUL for: Job '${env.JOB_NAME} build number #[${env.BUILD_NUMBER}]' :banana_dance: by [${env.GIT_COMMITTER_EMAIL}]'. Check (${env.BUILD_URL})")
 
             emailext attachLog: true,
                 body: EMAIL_BODY,
@@ -61,7 +61,7 @@ pipeline {
         
         
         failure {
-            slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}) (${env.GIT_URL})")
+            slackSend (color: 'danger', message: "BUILD FAILED for: Job '${env.JOB_NAME} build number #[${env.BUILD_NUMBER}]' :face_with_head_bandage: by [${env.GIT_COMMITTER_EMAIL}]'. Check (${env.BUILD_URL})")
 
             emailext attachLog: true,
                body: EMAIL_BODY ,
